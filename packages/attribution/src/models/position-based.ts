@@ -58,7 +58,6 @@ export function positionBasedAttribution(
 
   touchpoints.forEach(tp => {
     const key = getTouchpointKey(tp);
-    const _credit = creditMap.get(key) || 0;
 
     if (!resultMap.has(key)) {
       resultMap.set(key, {
