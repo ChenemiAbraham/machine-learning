@@ -2,6 +2,25 @@
 
 > A comprehensive growth engineering and machine learning platform demonstrating solutions to Juicyway's technical challenges: reconciliation, attribution, and experimentation velocity.
 
+## 🌐 Live Demo
+
+**Production Dashboard**: https://machine-learning-ngjv8ui6c-vennroads-projects.vercel.app
+
+**Key Metrics (Live Data)**:
+- 1,000 active users with realistic journeys
+- 941 completed transactions ($959.7K volume)
+- 76.7% KYC completion rate
+- 2 running A/B experiments
+- All 3 technical challenges solved and deployed
+
+**Explore**:
+- [Overview Dashboard](https://machine-learning-ngjv8ui6c-vennroads-projects.vercel.app) - Key metrics and KPIs
+- [Attribution Analysis](https://machine-learning-ngjv8ui6c-vennroads-projects.vercel.app/attribution) - 5 attribution models
+- [Experiments](https://machine-learning-ngjv8ui6c-vennroads-projects.vercel.app/experiments) - Live A/B test results
+- [Reconciliation](https://machine-learning-ngjv8ui6c-vennroads-projects.vercel.app/reconciliation) - Data quality monitoring
+
+📄 **[Read the Complete Case Study](docs/CASE_STUDY.md)** - 15,000 words documenting every technical decision
+
 ## 🎯 What This Demonstrates
 
 This project solves **3 critical technical challenges** from the Growth & GTM Engineer role:
