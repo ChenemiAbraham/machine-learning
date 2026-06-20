@@ -1,0 +1,19 @@
+juicyway:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'juicyway.duckdb'
+      schema: main
+      threads: 4
+      extensions:
+        - httpfs
+        - parquet
+    prod:
+      type: duckdb
+      path: 'juicyway_prod.duckdb'
+      schema: main
+      threads: 8
+      extensions:
+        - httpfs
+        - parquet

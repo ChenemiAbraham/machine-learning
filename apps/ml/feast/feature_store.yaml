@@ -1,0 +1,23 @@
+project: juicyway_growth
+provider: local
+registry:
+  registry_type: sql
+  path: postgresql://postgres:postgres@localhost:54322/postgres
+  sqlalchemy_config_kwargs:
+    echo: false
+    pool_pre_ping: true
+
+online_store:
+  type: postgres
+  host: localhost
+  port: 54322
+  database: postgres
+  db_schema: feast
+  user: postgres
+  password: postgres
+
+offline_store:
+  type: file
+  path: s3://bookovia-hopsworks/feast-offline-store
+
+entity_key_serialization_version: 2
