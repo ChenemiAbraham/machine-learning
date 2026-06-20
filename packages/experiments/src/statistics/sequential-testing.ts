@@ -15,7 +15,7 @@ export function sequentialTest(
   pValue: number,
   informationFraction: number,
   alpha: number = 0.05,
-  maxInterimAnalyses: number = 5
+  _maxInterimAnalyses: number = 5
 ): SequentialTestResult {
   const spendingThreshold = obrienFlemingSpending(informationFraction, alpha);
 
@@ -74,7 +74,7 @@ function obrienFlemingSpending(informationFraction: number, alpha: number): numb
  * Stop experiment early if unlikely to reach significance
  * even with full planned sample size
  */
-function futilityBoundary(informationFraction: number, alpha: number): number {
+function futilityBoundary(informationFraction: number, _alpha: number): number {
   if (informationFraction < 0.5) {
     return 1.0;
   }

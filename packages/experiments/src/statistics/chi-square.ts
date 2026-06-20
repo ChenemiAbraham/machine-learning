@@ -142,8 +142,8 @@ function incompleteGamma(s: number, x: number): number {
 export function calculateSampleSizeChiSquare(
   baselineConversionRate: number,
   minimumDetectableEffect: number,
-  power: number = 0.8,
-  alpha: number = 0.05
+  _power: number = 0.8,
+  _alpha: number = 0.05
 ): number {
   const p1 = baselineConversionRate;
   const p2 = p1 * (1 + minimumDetectableEffect);
