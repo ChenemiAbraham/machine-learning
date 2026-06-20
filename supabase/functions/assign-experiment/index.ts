@@ -1,6 +1,5 @@
-import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
+import { serve } from 'https://deno.land/std@0.192.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-import { createHash } from 'https://deno.land/std@0.168.0/hash/mod.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -132,7 +131,7 @@ serve(async (req) => {
         );
       }
 
-      const assignmentHash = generateHash(experimentData.id, identifier);
+      const assignmentHash = await generateHash(experimentData.id, identifier);
 
       await supabaseClient.from('experiment_assignments').insert({
         experiment_id: experimentData.id,
@@ -182,7 +181,7 @@ serve(async (req) => {
       experimentData.id
     );
 
-    const assignmentHash = generateHash(experimentData.id, identifier);
+    const assignmentHash = await generateHash(experimentData.id, identifier);
 
     await supabaseClient.from('experiment_assignments').insert({
       experiment_id: experimentData.id,
@@ -250,9 +249,11 @@ function selectVariant(
   return variants[variants.length - 1].name;
 }
 
-function generateHash(experimentId: string, identifier: string): string {
+async function generateHash(experimentId: string, identifier: string): Promise<string> {
   const input = `${experimentId}:${identifier}:${new Date().toISOString()}`;
-  const hash = createHash('sha256');
-  hash.update(input);
-  return hash.toString();
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
