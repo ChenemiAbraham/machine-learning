@@ -22,6 +22,7 @@ app = FastAPI(
     title="Juicyway ML API",
     description="Machine learning models for growth and risk",
     version="1.0.0",
+    root_path="/api" if os.getenv("VERCEL") else ""
 )
 
 app.add_middleware(
